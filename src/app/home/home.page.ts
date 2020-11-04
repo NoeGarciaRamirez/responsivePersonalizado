@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  animals: any;
+
+  constructor(private httpClient: HttpClient) {
+    this.animals = this.httpClient.get('https://raw.githubusercontent.com/NoeGarciaRamirez/responsivePersonalizado/main/animals.json');
+  }
 
 }
