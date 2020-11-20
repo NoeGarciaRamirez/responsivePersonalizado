@@ -1,31 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
+    <ion-title class="titulo">
       Animales
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-grid>
-    <ion-row><!--Cada user(que es una variable cualquiera) tendrá el valor de un usuario del array-->
-      <ion-col *ngFor="let animal of animals | async" size-xl="3" size-lg="4" size-md="5" size-sm="8" size-xs="12">
-        <ion-card>
-          <ioncard-content>
+<ion-content [fullscreen]="true" class="colorFondo">
 
-            <!-- <ion-avatar>
-              <img [src]="https://www.google.com/imgres?imgurl=https%3A%2F%2Fokdiario.com%2Fimg%2F2019%2F12%2F08%2Fcomo-podemos-ayudar-con-los-animales-en-peligro-de-extincion-655x368.jpg&imgrefurl=https%3A%2F%2Fokdiario.com%2Fmascotas%2Fcomo-podemos-ayudar-animales-peligro-extincion-4909518&tbnid=Ctcnn39NMjdhMM&vet=12ahUKEwjkysGIuujsAhVJwIUKHZTwB0IQMygAegUIARDNAQ..i&docid=PbVMDA7h-lCECM&w=655&h=368&q=animales&ved=2ahUKEwjkysGIuujsAhVJwIUKHZTwB0IQMygAegUIARDNAQ">
-            </ion-avatar> -->
+  <ion-input id="pregunta" type="number" min="0" max="999" [(ngModel)]="num" placeholder="¿Cuántos animales de los siguientes conoces?:">
+    <a *ngIf="num <= 10" href="https://es.wikipedia.org/wiki/Animalia">Más</a>
+  </ion-input>
 
-            <h1> {{ animal.Name }} </h1>
-            <h2>Scientific Name:<br></h2>
-            <h4> {{ animal.Scientific_Name }} </h4>
-            <h6>Age: {{ animal.Max_age }}</h6>
-            <h6>Gender: {{ animal.Gender }}</h6>
-            <h6><i>Color: {{ animal.Color }}</i></h6>
-          </ioncard-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-input id="filtro" type="" [(ngModel)]="filtro"  placeholder="Buscar por género"  class="card">
+  </ion-input>
+
+    <ion-grid>
+      <ion-row>
+        <ng-container *ngFor="let animal of animals | async">
+          <ion-col *ngIf="filtro == '' || animal.Gender == filtro" size-xl="3" size-lg="4" size-md="5" size-sm="8" size-xs="12" class="backColor">
+            <ion-card class="card">
+              <ion-card-header>
+                <h1> {{ animal.Name }} </h1>
+              </ion-card-header>
+              <ion-card-content>
+
+                <h2>Scientific Name:</h2>
+                <h4> {{ animal.Scientific_Name }} </h4>
+
+                <h6 class="colorAge">Age: {{ animal.Max_age }}</h6>
+                <h6 class="gender">Gender: {{ animal.Gender }}</h6>
+                <h6 class="color"><b>Color: {{ animal.Color }}</b></h6>
+
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ng-container>
+      </ion-row>
+    </ion-grid>
 </ion-content>

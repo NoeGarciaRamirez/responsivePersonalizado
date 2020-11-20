@@ -6,6 +6,7 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  
 }
 
 #container strong {
@@ -24,4 +25,113 @@
 
 #container a {
   text-decoration: none;
+}
+
+
+
+//Ninguna de las dos siguientes tamaños
+h1, h6 {
+  color: black;
+}
+
+h2, h4 {
+  font-style: oblique;
+}
+
+.titulo {
+  --color: rgb(0, 68, 57);
+}
+
+.card {
+  --background: rgb(61, 97, 145);
+}
+
+.colorAge {
+  color: rgb(17, 105, 17);
+}
+
+.gender {
+  visibility: visible;
+}
+
+.colorFondo {
+  --background: rgb(0, 87, 109);
+
+#pregunta {
+  color: white;
+}
+}
+//
+
+@media screen and (max-width: 600px) {//Menos de esos px
+
+  h1, h6 {
+    color: blue;
+  }
+  
+  h2, h4 {
+    font-style: oblique;
+  }
+  
+  .titulo {
+    --color: blueviolet;
+  }
+  
+  .card {
+    --background: blueviolet;
+  }
+  
+  .colorAge {
+    color: black;
+  }
+
+  .gender {
+    visibility: hidden;
+  }
+  
+  .colorFondo {
+    --background: rgb(48, 20, 100);
+  }
+
+  #pregunta {
+    color: white;
+  }
+
+}
+//
+
+@media screen and (min-width: 1090px) {//Más de esos px
+
+  h1, h6 {
+    color: black;
+  }
+  
+  h2, h4 {
+    font-style: oblique;
+  }
+  
+  .titulo {
+    --color: rgb(0, 97, 21);
+  }
+  
+  .card {
+    --background: lightgreen;
+  }
+  
+  .colorAge {
+    color: red;
+  }
+  
+  .gender {
+    visibility: hidden;
+  }
+  
+  .colorFondo {
+    --background: rgb(15, 49, 23);
+  }
+
+  #pregunta {
+    color: white;
+  }
+
 }

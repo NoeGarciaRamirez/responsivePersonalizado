@@ -9,9 +9,12 @@ import { HttpClient } from '@angular/common/http';
 export class HomePage {
 
   animals: any;
+  num: 0;
+  filtro: '';
 
   constructor(private httpClient: HttpClient) {
     this.animals = this.httpClient.get('https://raw.githubusercontent.com/NoeGarciaRamirez/responsivePersonalizado/main/animals.json');
+    
   }
 
 }
